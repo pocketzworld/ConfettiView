@@ -19,7 +19,19 @@ public final class ConfettiView: UIView {
     }
 
     // MARK: -
-
+    public func emitConfetti() {
+        emit(with: [
+          .text("🎉"),
+          .text("🙌"),
+          .text("🥳"),
+          .text("🎊"),
+          .shape(.triangle, UIColor(red: 158/255.0, green: 89/255.0, blue: 253/255.0, alpha: 1.0)),
+          .shape(.circle, UIColor(red: 37/255.0, green: 198/255.0, blue: 255/255.0, alpha: 1.0)),
+          .shape(.triangle, UIColor(red: 109/255.0, green: 255/255.0, blue: 60/255.0, alpha: 1.0)),
+          .shape(.square, UIColor(red: 255/255.0, green: 102/255.0, blue: 130/255.0, alpha: 1.0)),
+          .shape(.triangle, UIColor(red: 253/255.0, green: 255/255.0, blue: 95/255.0, alpha: 1.0)),
+        ])
+    }
     /**
      Emits the provided confetti content for a specified duration.
 
@@ -112,9 +124,9 @@ public final class ConfettiView: UIView {
             emitterCells = contents.map { content in
                 let cell = CAEmitterCell()
 
-                cell.birthRate = 50.0
+                cell.birthRate = 15.0
                 cell.lifetime = 10.0
-                cell.velocity = CGFloat(cell.birthRate * cell.lifetime)
+                cell.velocity = CGFloat(50 * cell.lifetime)
                 cell.velocityRange = cell.velocity / 2
                 cell.emissionLongitude = .pi
                 cell.emissionRange = .pi / 4
